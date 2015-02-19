@@ -12,6 +12,10 @@ read NEWHOSTNAME
 hostname $NEWHOSTNAME
 echo $NEWHOSTNAME > /etc/hostname
 
+# Find the server we're using
+echo "Enter puppet master hostname for the first run: "
+read PUPPETMASTER
+
 # Download and install puppet
 mkdir setup-temp
 cd setup-temp
@@ -21,4 +25,10 @@ apt-get update || exit 1
 apt-get install puppet || exit 1
 
 # Initial puppet run!
-puppet agent -t || exit 1
+puppet agent -t --server $PUPPETMASTER || exit 1
+
+echo "Sign and classify the node on the puppet master, then press enter"
+read dummy
+
+# First real puppet run
+puppet agent -t --server $PUPPETMASTER || exit 1
