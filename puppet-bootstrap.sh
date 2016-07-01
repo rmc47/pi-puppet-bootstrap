@@ -32,10 +32,10 @@ read PUPPETENV
 puppet config set environment $PUPPETENV
 
 # Initial puppet run!
-puppet agent -t --server $PUPPETMASTER || exit 1
+puppet agent -t
 
 echo "Sign and classify the node on the puppet master, then press enter"
 read dummy
 
 # First real puppet run
-puppet agent -t --server $PUPPETMASTER || exit 1
+puppet agent -t || exit 1
