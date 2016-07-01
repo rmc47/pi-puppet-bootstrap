@@ -37,5 +37,8 @@ puppet agent -t
 echo "Sign and classify the node on the puppet master, then press enter"
 read dummy
 
+# Enable puppet
+puppet agent --enable
+
 # First real puppet run
 puppet agent -t || exit 1
