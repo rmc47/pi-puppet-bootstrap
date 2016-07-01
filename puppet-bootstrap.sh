@@ -40,5 +40,8 @@ read dummy
 # Enable puppet
 puppet agent --enable
 
+# Enable pluginsync
+puppet config set pluginsync true
+
 # First real puppet run
 puppet agent -t || exit 1
