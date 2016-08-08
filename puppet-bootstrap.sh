@@ -24,7 +24,7 @@ apt-get install puppet || exit 1
 # Find the server we're using
 echo "Enter puppet master hostname: "
 read PUPPETMASTER
-puppet config set server $PUPPETMASTER --section agent
+puppet config set server $PUPPETMASTER --section main
 
 # Set the environment
 echo "Enter environment name: "
