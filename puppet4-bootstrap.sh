@@ -16,8 +16,8 @@ echo $NEWHOSTNAME > /etc/hostname
 # Download and install puppet
 mkdir setup-temp
 cd setup-temp
-wget https://apt.puppetlabs.com/puppetlabs-release-`lsb_release -c -s`-pc1.deb || exit 1
-dpkg -i puppetlabs-release-`lsb_release -c -s`-pc1.deb || exit 1
+wget https://apt.puppetlabs.com/puppetlabs-release-pc1-`lsb_release -c -s`.deb || exit 1
+dpkg -i puppetlabs-release-pc1-`lsb_release -c -s`.deb || exit 1
 apt-get update || exit 1
 apt-get install puppet-common || exit 1
 
