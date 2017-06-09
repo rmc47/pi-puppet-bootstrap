@@ -27,28 +27,28 @@ export PATH=$PATH:/opt/puppetlabs/bin
 # Find the server we're using
 echo "Enter puppet master hostname: "
 read PUPPETMASTER
-puppet config set server $PUPPETMASTER --section main
+/opt/puppetlabs/bin/puppet config set server $PUPPETMASTER --section main
 
 echo "Enter puppet master port (8140 is the normal one): "
 read MASTERPORT
-puppet config set masterport $MASTERPORT --section main
+/opt/puppetlabs/bin/puppet config set masterport $MASTERPORT --section main
 
 # Set the environment
 echo "Enter environment name: "
 read PUPPETENV
-puppet config set environment $PUPPETENV
+/opt/puppetlabs/bin/puppet config set environment $PUPPETENV
 
 # Initial puppet run!
-puppet agent -t
+/opt/puppetlabs/bin/puppet agent -t
 
 echo "Sign and classify the node on the puppet master, then press enter"
 read dummy
 
 # Enable puppet
-puppet agent --enable
+/opt/puppetlabs/bin/puppet agent --enable
 
 # Enable pluginsync
-puppet config set pluginsync true
+/opt/puppetlabs/bin/puppet config set pluginsync true
 
 # First real puppet run
-puppet agent -t || exit 1
+/opt/puppetlabs/bin/puppet agent -t || exit 1
